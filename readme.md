@@ -1,4 +1,4 @@
 #kb-deal-service
 
 # Swagger-ui
-http://localhost:8080/swagger-ui.html
+http://localhost:8080/deal-service/swagger-ui.html
