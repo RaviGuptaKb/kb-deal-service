@@ -2,6 +2,7 @@ package com.kb.deal.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 /**
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "category")
 public class Category {
     @Id
@@ -42,17 +44,5 @@ public class Category {
         this.categoryStage = categoryStage;
         this.isNavigation = isNavigation;
         this.parentId = parentId;
-    }
-
-    @Override
-    public String toString() {
-        return "Category{" +
-                "id=" + id +
-                ", categoryIcon='" + categoryIcon + '\'' +
-                ", categoryName='" + categoryName + '\'' +
-                ", categoryStage=" + categoryStage +
-                ", isNavigation=" + isNavigation +
-                ", parentId=" + parentId +
-                '}';
     }
 }

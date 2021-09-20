@@ -2,6 +2,7 @@ package com.kb.deal.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 /**
@@ -10,6 +11,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "trending_deal")
 public class TrendingDeal {
     @Id
@@ -46,18 +48,5 @@ public class TrendingDeal {
         this.imageGalleryId = imageGalleryId;
         this.description = description;
         this.brandModelId = brandModelId;
-    }
-
-    @Override
-    public String toString() {
-        return "TrendingDeal{" +
-                "id=" + id +
-                ", categoryId=" + categoryId +
-                ", parentId=" + parentId +
-                ", discountRange=" + discountRange +
-                ", imageGalleryId=" + imageGalleryId +
-                ", description='" + description + '\'' +
-                ", brandModelId=" + brandModelId +
-                '}';
     }
 }

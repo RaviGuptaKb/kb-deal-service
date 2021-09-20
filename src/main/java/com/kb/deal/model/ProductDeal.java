@@ -2,6 +2,7 @@ package com.kb.deal.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -12,6 +13,7 @@ import java.sql.Timestamp;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "product_deal")
 public class ProductDeal {
     @Id
@@ -68,23 +70,5 @@ public class ProductDeal {
         this.discountRange = discountRange;
         this.brandModelId = brandModelId;
         this.isActive = isActive;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductDeal{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", title='" + title + '\'' +
-                ", description='" + description + '\'' +
-                ", bannerId=" + bannerId +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                ", productCategory='" + productCategory + '\'' +
-                ", imageGalleryId=" + imageGalleryId +
-                ", discountRange=" + discountRange +
-                ", brandModelId=" + brandModelId +
-                ", isActive=" + isActive +
-                '}';
     }
 }

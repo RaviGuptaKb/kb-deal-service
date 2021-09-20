@@ -2,6 +2,7 @@ package com.kb.deal.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -11,6 +12,7 @@ import java.sql.Timestamp;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "offer")
 public class Offer {
     @Id
@@ -42,17 +44,5 @@ public class Offer {
         this.bankOffer = bankOffer;
         this.startDate = startDate;
         this.endDate = endDate;
-    }
-
-    @Override
-    public String toString() {
-        return "Offer{" +
-                "id=" + id +
-                ", bannerLength=" + bannerLength +
-                ", occasion='" + occasion + '\'' +
-                ", bankOffer='" + bankOffer + '\'' +
-                ", startDate=" + startDate +
-                ", endDate=" + endDate +
-                '}';
     }
 }

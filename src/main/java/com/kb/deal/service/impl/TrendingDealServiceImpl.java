@@ -65,9 +65,12 @@ public class TrendingDealServiceImpl implements TrendingDealService {
 
     @Override
     public List<String> getTrendingProducts(Long parentId, Long categoryId) {
-        Boolean trending = true;
-        //TODO: need to update
-        List<String> trendingProducts = brandsRepository.getTrendingProducts(trending);
+        List<String> trendingProducts = new ArrayList<>();
+        //TODO: need to implement
+//        customer_product_review.product_id in (select p from product p where p.brand_model_category in
+//        (select c.id from category c where c.parent_id = null) and
+//        brand_model_category.category_id in (select c.id from category c where c.parent_id != null and c.id = categoryId)
+//        and customer_product_review.avg_rating > 4
         return trendingProducts;
     }
 

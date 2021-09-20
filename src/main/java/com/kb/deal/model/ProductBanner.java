@@ -2,6 +2,7 @@ package com.kb.deal.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
@@ -11,6 +12,7 @@ import javax.persistence.*;
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "product_banner")
 public class ProductBanner {
     @Id
@@ -38,16 +40,5 @@ public class ProductBanner {
         this.discountDetail = discountDetail;
         this.imageGalleryId = imageGalleryId;
         this.message = message;
-    }
-
-    @Override
-    public String toString() {
-        return "ProductBanner{" +
-                "id=" + id +
-                ", productCategory='" + productCategory + '\'' +
-                ", discountDetail='" + discountDetail + '\'' +
-                ", imageGalleryId=" + imageGalleryId +
-                ", message='" + message + '\'' +
-                '}';
     }
 }

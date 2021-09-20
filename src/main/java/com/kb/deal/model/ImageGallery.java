@@ -2,12 +2,14 @@ package com.kb.deal.model;
 
 import lombok.Getter;
 import lombok.Setter;
+import lombok.ToString;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @Setter
+@ToString
 @Table(name = "image_gallery")
 public class ImageGallery {
     @Id
