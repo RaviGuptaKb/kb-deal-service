@@ -1,5 +1,6 @@
 package com.kb.deal.controller;
 
+import com.kb.deal.model.Product;
 import com.kb.deal.model.TrendingDeal;
 import com.kb.deal.request.TrendingDealRequest;
 import com.kb.deal.service.TrendingDealService;
@@ -63,9 +64,9 @@ public class TrendingDealController {
             @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
     }
     )
-    @GetMapping(path = "/products/{parentId}")
-    public ResponseEntity<?> getTrendingProducts(@PathVariable(name = "parentId") Long parentId, @RequestParam(required = false) Long categoryId) {
-        List<String> products = trendingDealService.getTrendingProducts(parentId, categoryId);
+    @GetMapping(path = "/products/{categoryId}")
+    public ResponseEntity<?> getTrendingProducts(@PathVariable(name = "categoryId") Long categoryId) {
+        List<Product> products = trendingDealService.getTrendingProducts(categoryId);
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
 

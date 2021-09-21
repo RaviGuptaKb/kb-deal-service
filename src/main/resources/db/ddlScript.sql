@@ -6,6 +6,7 @@ ALTER TABLE `kb_catalog_inventory`.`brand_model_category` ADD INDEX category_nam
 ALTER TABLE `kb_catalog_inventory`.`category` ADD INDEX category_name_index (category_name);
 ALTER TABLE `kb_catalog_inventory`.`category` ADD INDEX category_id_index (id);
 ALTER TABLE `kb_catalog_inventory`.`image_gallery` ADD INDEX image_gallery_id_index (id);
+ALTER TABLE `kb_catalog_inventory`.`product` ADD on_offer BIT(1) NOT NULL DEFAULT 0;
 
 #------------------------- CREATE TABLE STATEMENTS FOR EXISTING SCHEMA ------------------------
 drop table if exists `kb_catalog_inventory`.`offer`;

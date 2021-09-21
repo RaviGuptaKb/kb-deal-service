@@ -1,6 +1,7 @@
 package com.kb.deal.service;
 
 
+import com.kb.deal.model.Product;
 import com.kb.deal.model.TrendingDeal;
 import com.kb.deal.request.TrendingDealRequest;
 
@@ -15,7 +16,7 @@ public interface TrendingDealService {
 
     List<String> getTrendingBrands();
 
-    List<String> getTrendingProducts(Long parentId, Long categoryId);
+    List<Product> getTrendingProducts(Long categoryId);
 
     TrendingDeal addTrendingDeal(TrendingDealRequest trendingRequest);
 

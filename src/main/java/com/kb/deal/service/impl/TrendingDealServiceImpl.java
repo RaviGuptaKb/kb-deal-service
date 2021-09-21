@@ -1,14 +1,15 @@
 package com.kb.deal.service.impl;
 
+import com.kb.deal.model.Product;
 import com.kb.deal.model.TrendingDeal;
+import com.kb.deal.repository.BrandModelCategoryRepository;
 import com.kb.deal.repository.BrandsRepository;
+import com.kb.deal.repository.ProductRepository;
 import com.kb.deal.repository.TrendingDealRepository;
 import com.kb.deal.request.TrendingDealRequest;
 import com.kb.deal.service.TrendingDealService;
 import io.micrometer.core.instrument.util.StringUtils;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -29,6 +30,12 @@ public class TrendingDealServiceImpl implements TrendingDealService {
 
     @Autowired
     private BrandsRepository brandsRepository;
+
+    @Autowired
+    private ProductRepository productRepository;
+
+    @Autowired
+    private BrandModelCategoryRepository brandModelCategoryRepository;
 
     @Override
     public List<TrendingDeal> getTrendingDeal(Long parentId, Long categoryId, Long brandModelId) {
@@ -64,13 +71,11 @@ public class TrendingDealServiceImpl implements TrendingDealService {
     }
 
     @Override
-    public List<String> getTrendingProducts(Long parentId, Long categoryId) {
-        List<String> trendingProducts = new ArrayList<>();
-        //TODO: need to implement
-//        customer_product_review.product_id in (select p from product p where p.brand_model_category in
-//        (select c.id from category c where c.parent_id = null) and
-//        brand_model_category.category_id in (select c.id from category c where c.parent_id != null and c.id = categoryId)
-//        and customer_product_review.avg_rating > 4
+    public List<Product> getTrendingProducts(Long categoryId) {
+        Boolean onOffer = true;
+        List<Long> brandModelCategoryIds = brandModelCategoryRepository.findByCategoryId(categoryId);
+        List<Product> trendingProducts = productRepository.getTrendingProducts(brandModelCategoryIds, onOffer);
+//      customer_product_review.product_id in (trendingProducts.id) and customer_product_review.avg_rating > 4
         return trendingProducts;
     }
 

@@ -23,7 +23,7 @@ public interface TrendingDealRepository extends JpaRepository<TrendingDeal, Long
     @Query(value = "select td from TrendingDeal td where td.parentId  = ?1")
     List<TrendingDeal> getTrendingDealByParentId(Long parentId);
 
-    @Query(value = "select td from TrendingDeal td where td.categoryId= ?1 AND td.brandModelId >= ?2 AND td.parentId is null ")
+    @Query(value = "select td from TrendingDeal td where td.categoryId= ?1 AND td.brandModelId = ?2 AND td.parentId is null ")
     List<TrendingDeal> getTrendingDealByCategoryIdBrandModelId(Long categoryId, Long brandModelId);
 
     @Query(value = "select td from TrendingDeal td where td.categoryId= ?1 AND td.parentId is null ")
